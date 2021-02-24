@@ -11,7 +11,7 @@ int main() {
     int queue[size];
     do {
         printf("\n============================================\n");
-        printf("CIRCULAR QUEUE\n");
+        printf("                CIRCULAR QUEUE\n");
         printf("============================================\n");
         printf("1. Insert \n2. Delete\n3. Display\n4. Search\n0. Exit");
         printf("\nEnter Choice 0-4? : ");
