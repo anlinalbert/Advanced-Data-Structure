@@ -86,20 +86,31 @@ void deleteq(int queue[]) {
 }
 
 void searchq(int queue[]) {
-    int key, c = 0;
+    int key, c = 0, i;
     printf("\nEnter the search element: ");
     scanf("%d", &key);
-    for(int i = 0; i < size; i++) {
-        if (front ==  - 1) {
-            c = 2;
-            break;
-        } else if(queue[i] == key)
-            c = 1;
-    }
+    if(front == -1)
+        printf("Queue empty");
+    if(front > rear) {
+        for(i = front; i < size; i++)
+            if(queue[i] == key) {
+                c = 1;
+                break;
+            }
+        for(i = 0; i <= rear; i++)
+            if(queue[i] == key) {
+                c = 1;
+                break;
+            }
+    } else
+        for(i = front; i <= rear; i++)
+            if(queue[i] == key) {
+                c = 1;
+                break;
+            }
+    printf("\n");
     if(c == 1)
         printf("Element found\n");
-    else if(c == 0)
-        printf("Element not found\n");
     else
-        printf("Queue Empty\n");
+        printf("Element not found\n");
 }
