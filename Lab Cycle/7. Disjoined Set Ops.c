@@ -6,12 +6,12 @@ int unions(int[],int[],int[],int,int);
 int input(int[]);  
 int intersection(int[],int[],int[],int,int);  
 int difference(int[],int[],int[],int,int);  
-int symdiff(int[],int[],int[],int,int);  
 void display(int[],int);  
+int find(int[], int[], int, int, int);
 
 void main() {  
-    int set1[20],set2[20],set3[40],s1=0,s2=0,s3,ch,ch1,ch2; 
-    int n, choice=1;
+    int set1[20], set2[20], set3[40], s1=0, s2=0, s3, ch, ch1, ch2, a, b; 
+    int n, choice = 1;
 
     while(choice != 0) {
         printf("\n============================================\n");
@@ -21,7 +21,8 @@ void main() {
         printf("2. Union\n");
         printf("3. Intersection\n");
         printf("4. Difference\n");
-        printf("5. Display\n");
+        printf("5. Find\n");
+        printf("6. Display\n");
         printf("0. Exit\n");
         printf("--------------------------------------------\n");
         printf("Enter your choice : ");
@@ -38,7 +39,7 @@ void main() {
 
             case 2 :
                 if(s1==0 &&s2==0)  
-                    printf("\n\nU HAVE TO ENTER SET FIRST"); 
+                    printf("\n\n\t\tU HAVE TO ENTER SET FIRST"); 
                 else {
                     s3 = unions(set1, set2, set3, s1, s2);
                     display(set3,s3);
@@ -65,9 +66,24 @@ void main() {
                     s3=difference(set2,set1,set3,s2,s1);  
                     display(set3,s3);  
                 }
+                break;
+
+            case 5 :
+                if(s1==0 &&s2==0)  
+                    printf("\n\n\t\tU HAVE TO ENTER SET FIRST"); 
+                else {
+                    printf("Enter the first element: ");
+                    scanf("%d", &a);
+                    printf("Enter the second element: ");
+                    scanf("%d", &b);
+                    if(find(set1, set2, s1, s2, a) == find(set1, set2, s1, s2, b))
+                        printf("\nThe elements are in the same set.\n");
+                    else
+                        printf("\nThe elements are not in the same set.\n");
+                }
                 break;  
             
-            case 5 :
+            case 6 :
                 if(s1==0 &&s2==0)  
                     printf("\n\n\t\tU HAVE TO ENTER SET FIRST"); 
                 else {
@@ -88,7 +104,7 @@ void main() {
 *****************************************************/  
 int input(int set[])  {  
     int i=0,j,s;  
-    printf("\nENTER THE SIZE OFTHE SET : ");  
+    printf("\nENTER THE SIZE OF THE SET : ");  
     scanf("%d",&s);  
     printf("\nENTER THE SET\n");  
     while(i<s) {  
@@ -154,6 +170,23 @@ int difference(int set1[],int set2[],int set3[],int s1,int s2) {
     }  
     return s3;  
 }  
+
+/*********************************************************  
+                    FIND FUNCTION  
+**********************************************************/  
+int find(int set1[], int set2[], int s1, int s2, int x) {
+    int c = 0;
+
+    for(int i = 0; i < s1; i++)
+        if(set1[i] == x)
+            c = 1;
+    
+    for(int i = 0; i < s2; i++)
+        if(set2[i] == x)
+            c = 2;
+
+    return c;
+}
 
 /*********************************************************  
                     DISPLAY FUNCTION  
