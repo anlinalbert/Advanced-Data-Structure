@@ -388,7 +388,7 @@ int main() {
     struct node *np;
     char ch;
 
-    printf("\nENTER THE NUMBER OF ELEMENTS:");
+    printf("\nENTER THE NUMBER OF ELEMENTS: ");
 
     scanf("%d", &n);
 
@@ -407,7 +407,7 @@ int main() {
 
         printf(
 
-            "\n1)INSERT AN ELEMENT\n2)EXTRACT THE MINIMUM KEY NODE\n3)DECREASE A NODE KEY\n4)DELETE A NODE\n5)QUIT\n");
+            "\n1)INSERT AN ELEMENT\n2)EXTRACT THE MINIMUM KEY NODE\n3)DECREASE A NODE KEY\n4)DELETE A NODE\n5)QUIT\n\nCHOICE = ");
 
         scanf("%d", &l);
 
@@ -415,7 +415,7 @@ int main() {
 
         case 1:
             do {
-                printf("\nENTER THE ELEMENT TO BE INSERTED:");
+                printf("\nENTER THE ELEMENT TO BE INSERTED: ");
 
                 scanf("%d", &m);
 
@@ -427,7 +427,7 @@ int main() {
 
                 DISPLAY(H);
 
-                printf("\nINSERT MORE(y/Y)= \n");
+                printf("\nINSERT MORE(y/Y) = ");
 
                 fflush(stdin);
 
@@ -479,13 +479,13 @@ int main() {
 
                 DISPLAY(H);
 
-                printf("\nDECREASE MORE(y/Y)\n");
+                printf("\nDECREASE MORE(y/Y) = ");
 
                 fflush(stdin);
 
                 scanf("%c", &ch);
 
-            } while (ch == 'Y' || ch == 'y');
+            } while (ch == 'y' || ch == 'Y');
 
             break;
 
@@ -494,7 +494,7 @@ int main() {
                 printf("\nENTER THE KEY TO BE DELETED: ");
                 scanf("%d", &m);
                 bin_HEAP_DELETE(H, m);
-                printf("\nDELETE MORE(y/Y)\n");
+                printf("\nDELETE MORE(y/Y) = ");
                 fflush(stdin);
                 scanf("%c", &ch);
 

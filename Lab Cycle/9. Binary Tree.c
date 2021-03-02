@@ -27,52 +27,58 @@ int main(void)
     {
         do
         {
-            printf("\n \t 1. Insert in Binary Tree  ");
-            printf("\n\t 2. Delete from Binary Tree ");
-            printf("\n\t 3. Inorder traversal of Binary tree");
-            printf("\n\t 4. Postorder traversal of Binary tree");
-            printf("\n\t 5. Preorder traversal of Binary tree");
-            printf("\n\t 6. Search and replace ");
-            printf("\n\t 7. Exit ");
-            printf("\n\t Enter choice : ");
+            printf("\n1. Insert in Binary Tree  ");
+            printf("\n2. Delete from Binary Tree ");
+            printf("\n3. Inorder traversal of Binary tree");
+            printf("\n4. Postorder traversal of Binary tree");
+            printf("\n5. Preorder traversal of Binary tree");
+            printf("\n6. Search and replace ");
+            printf("\n7. Exit ");
+            printf("\nEnter choice : ");
             scanf(" %d", &choice);
             if (choice < 1 || choice > 7)
-                printf("\n Invalid choice - try again");
+                printf("\nInvalid choice - try again\n");
         } while (choice < 1 || choice > 7);
         switch (choice)
         {
         case 1:
-            printf("\n Enter new element: ");
+            printf("\nEnter new element: ");
             scanf("%d", &item);
             root = insert(root, item);
-            printf("\n root is %d", root->info);
-            printf("\n Inorder traversal of binary tree is : ");
+            printf("\nRoot is %d", root->info);
+            printf("\nInorder traversal of binary tree is : ");
             inorder(root);
+            printf("\n");
             break;
         case 2:
-            printf("\n Enter the element to be deleted : ");
+            printf("\nEnter the element to be deleted : ");
             scanf(" %d", &item_no);
             root = delet(root, item_no);
             inorder(root);
+            printf("\n");
             break;
         case 3:
-            printf("\n Inorder traversal of binary tree is : ");
+            printf("\nInorder traversal of binary tree is : ");
             inorder(root);
+            printf("\n");
             break;
         case 4:
-            printf("\n Postorder traversal of binary tree is : ");
+            printf("\nPostorder traversal of binary tree is : ");
             postorder(root);
+            printf("\n");
             break;
         case 5:
-            printf("\n Preorder traversal of binary tree is : ");
+            printf("\nPreorder traversal of binary tree is : ");
             preorder(root);
+            printf("\n");
             break;
         case 6:
-            printf("\n Search and replace operation in binary tree ");
+            printf("\nSearch and replace operation in binary tree ");
             root = search(root);
+            printf("\n");
             break;
         default:
-            printf("\n End of program ");
+            printf("\nEnd of program ");
         }
         /* end of switch */
     } while (choice != 7);
@@ -133,7 +139,7 @@ struct tree *delet(struct tree *ptr, int x)
     struct tree *p1, *p2;
     if (!ptr)
     {
-        printf("\n Node not found ");
+        printf("\nNode not found ");
         return (ptr);
     }
     else
@@ -193,7 +199,7 @@ struct tree *search(struct tree *root)
     int no, i, ino;
     struct tree *ptr;
     ptr = root;
-    printf("\n Enter the element to be searched :");
+    printf("\nEnter the element to be searched: ");
     scanf(" %d", &no);
     fflush(stdin);
     while (ptr)
@@ -212,7 +218,7 @@ struct tree *search(struct tree *root)
         scanf(" %d", &i);
         if (i == 1)
         {
-            printf("\n Enter new element :");
+            printf("\n Enter new element: ");
             scanf(" %d", &ino);
             ptr->info = ino;
         }

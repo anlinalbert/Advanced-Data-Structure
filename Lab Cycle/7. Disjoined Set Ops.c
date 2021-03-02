@@ -30,6 +30,8 @@ void main() {
         scanf("%d", &choice);
 
         switch (choice) {
+            case 0 : break;
+            
             case 1 :
                 printf("Enter set 1:\n");
                 s1 = input(set1);
@@ -172,8 +174,18 @@ int difference(int set1[],int set2[],int set3[],int s1,int s2) {
 }  
 
 /*********************************************************  
-                    FIND FUNCTION  
+                    DISPLAY FUNCTION  
 **********************************************************/  
+void display(int set[],int size) {  
+    int i;  
+    printf("\n\n\t{ ");  
+    for(i=0;i<size;i++)  
+        printf("\t%d",set[i]);  
+    printf("\t} ");  
+    getch();  
+}  
+
+
 int find(int set1[], int set2[], int s1, int s2, int x) {
     int c = 0;
 
@@ -187,15 +199,3 @@ int find(int set1[], int set2[], int s1, int s2, int x) {
 
     return c;
 }
-
-/*********************************************************  
-                    DISPLAY FUNCTION  
-**********************************************************/  
-void display(int set[],int size) {  
-    int i;  
-    printf("\n\n\t{ ");  
-    for(i=0;i<size;i++)  
-        printf("\t%d",set[i]);  
-    printf("\t} ");  
-    getch();  
-}  
