@@ -321,20 +321,25 @@ int main() {
   while (1) {
     printf("1. Insertion\t2. Deletion\n");
     printf("3. Traverse\t4. Exit");
-    printf("\nEnter your choice:");
+    printf("\n\nEnter your choice: ");
     scanf("%d", &ch);
     switch (ch) {
       case 1:
-        printf("Enter the element to insert:");
+        printf("Enter the element to insert: ");
         scanf("%d", &data);
         insertion(data);
         break;
       case 2:
-        printf("Enter the element to delete:");
+        printf("Enter the element to delete: ");
         scanf("%d", &data);
         deletion(data);
         break;
       case 3:
+        if (!root) {
+          printf("Tree not available\n");
+          break;
+        }
+        printf("Tree: ");
         inorderTraversal(root);
         printf("\n");
         break;

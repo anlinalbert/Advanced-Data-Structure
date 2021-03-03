@@ -27,12 +27,12 @@ int main(void)
     {
         do
         {
-            printf("\n1. Insert in Binary Tree  ");
-            printf("\n2. Delete from Binary Tree ");
-            printf("\n3. Inorder traversal of Binary tree");
-            printf("\n4. Postorder traversal of Binary tree");
-            printf("\n5. Preorder traversal of Binary tree");
-            printf("\n6. Search and replace ");
+            printf("\n1. Insert in binary tree  ");
+            printf("\n2. Delete from binary tree ");
+            printf("\n3. Inorder traversal of binary tree");
+            printf("\n4. Postorder traversal of binary tree");
+            printf("\n5. Preorder traversal of binary tree");
+            printf("\n6. Search");
             printf("\n7. Exit ");
             printf("\nEnter choice : ");
             scanf(" %d", &choice);
@@ -46,34 +46,35 @@ int main(void)
             scanf("%d", &item);
             root = insert(root, item);
             printf("\nRoot is %d", root->info);
-            printf("\nInorder traversal of binary tree is : ");
+            printf("\nInorder traversal of binary tree is: ");
             inorder(root);
             printf("\n");
             break;
         case 2:
-            printf("\nEnter the element to be deleted : ");
+            printf("\nEnter the element to be deleted: ");
             scanf(" %d", &item_no);
             root = delet(root, item_no);
+            printf("Tree: ");
             inorder(root);
             printf("\n");
             break;
         case 3:
-            printf("\nInorder traversal of binary tree is : ");
+            printf("\nInorder traversal of binary tree is: ");
             inorder(root);
             printf("\n");
             break;
         case 4:
-            printf("\nPostorder traversal of binary tree is : ");
+            printf("\nPostorder traversal of binary tree is: ");
             postorder(root);
             printf("\n");
             break;
         case 5:
-            printf("\nPreorder traversal of binary tree is : ");
+            printf("\nPreorder traversal of binary tree is: ");
             preorder(root);
             printf("\n");
             break;
         case 6:
-            printf("\nSearch and replace operation in binary tree ");
+            printf("\nSearch operation in binary tree ");
             root = search(root);
             printf("\n");
             break;
@@ -213,7 +214,11 @@ struct tree *search(struct tree *root)
     }
     if (ptr)
     {
-        printf("\n Element %d which was searched is found and is = %d", no, ptr->info);
+        printf("\nElement %d which was searched is found", no);
+
+        // search and replace has been disabled coz it does not rearrange tree
+        // after replacing
+        /**************************
         printf("\n Do you want replace it, press 1 for yes : ");
         scanf(" %d", &i);
         if (i == 1)
@@ -224,8 +229,9 @@ struct tree *search(struct tree *root)
         }
         else
             printf("\n\t It's okay");
+        ************************************/
     }
     else
-        printf("\n Element %d does not exist in the binary tree", no);
+        printf("\nElement %d does not exist in the binary tree", no);
     return (root);
 }
